@@ -56,3 +56,53 @@ bienvenue.append(exclamationMark)
 // -------------------------------------------------------------------------------
 
 print("\(2+2)")
+
+// -------------------------------------------------------------------------------
+// Unicode
+// -------------------------------------------------------------------------------
+
+// Special Characters in String Literals
+
+let special1 = "a\tb\tc"
+
+// Extended Grapheme Clusters
+
+let eAcute = "\u{e9}"
+let combinedEAcute = "\u{65}\u{301}"
+
+// -------------------------------------------------------------------------------
+// Counting Characters
+// -------------------------------------------------------------------------------
+
+let special1Count = special1.characters.count
+let eAcuteCount = eAcute.characters.count
+let combinedEAcuteCount = combinedEAcute.characters.count
+
+let e = "\u{65}"
+let eCount = e.characters.count
+
+let combiningGrave = "\u{300}"
+let combiningGraveCount = combiningGrave.characters.count
+
+let combinedEGrave = e + combiningGrave
+let combinedEGraveCount = combinedEGrave.characters.count
+
+let grave = "\u{60}"
+let graveCount = grave.characters.count
+
+let ePlusGrave = e + grave
+let ePlusGraveCount = ePlusGrave.characters.count
+
+
+
+
+
+
+
+
+
+
+
+
+
+
