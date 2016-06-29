@@ -117,9 +117,18 @@ print(tuple2.b)
 // Optionals
 // -------------------------------------------------------------------------------
 
+var optionalInt: Int?
+print(optionalInt)
+optionalInt = 1
+print(optionalInt)
+print(optionalInt!)
 
+if let int = optionalInt {
+    print(int)
+}
 
-
+var implicitInt: Int! = 2
+print(implicitInt)
 
 
 
