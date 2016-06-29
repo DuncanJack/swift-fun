@@ -96,6 +96,18 @@ let graveCount = grave.characters.count
 let ePlusGrave = e + grave
 let ePlusGraveCount = ePlusGrave.characters.count
 
+let usFlag = "\u{1F1FA}\u{1F1F8}"
+let usFlagCharacterCount = usFlag.characters.count
+for character in usFlag.characters{
+    print(character)
+}
+
+let nsString = NSString(string: usFlag)
+let usFlagNumberOf16BitCodeUnits = nsString.length
+for c in 0..<usFlagNumberOf16BitCodeUnits {
+    print(nsString.character(at: c))
+}
+
 
 
 
