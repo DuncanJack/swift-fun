@@ -108,14 +108,25 @@ for c in 0..<usFlagNumberOf16BitCodeUnits {
     print(nsString.character(at: c))
 }
 
+// -------------------------------------------------------------------------------
+// Accessing and Modifying a String
+// -------------------------------------------------------------------------------
 
+// String Indices
 
+let word = "abc"
 
+let a = word[word.startIndex]
+let b = word[word.index(after: word.startIndex)]
+let c = word[word.index(before: word.endIndex)]
 
+for index in word.characters.indices {
+    print(word[index], terminator:"")
+}
 
-
-
-
+for character in word.characters {
+    print(character, terminator:"")
+}
 
 
 
