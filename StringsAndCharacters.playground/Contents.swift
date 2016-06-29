@@ -1,3 +1,5 @@
+import Foundation
+
 // -------------------------------------------------------------------------------
 // String Literals
 // -------------------------------------------------------------------------------
@@ -86,12 +88,15 @@ let combiningGraveCount = combiningGrave.characters.count
 
 let combinedEGrave = e + combiningGrave
 let combinedEGraveCount = combinedEGrave.characters.count
+let numberOf16BitCodeUnits = NSString(string: combinedEGrave).length
 
 let grave = "\u{60}"
 let graveCount = grave.characters.count
 
 let ePlusGrave = e + grave
 let ePlusGraveCount = ePlusGrave.characters.count
+
+
 
 
 
