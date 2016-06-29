@@ -130,7 +130,26 @@ if let int = optionalInt {
 var implicitInt: Int! = 2
 print(implicitInt)
 
+// -------------------------------------------------------------------------------
+// Error Handling
+// -------------------------------------------------------------------------------
 
+func canThrowAnError() throws {
+}
+
+do {
+    try canThrowAnError()
+} catch {
+    
+}
+
+// -------------------------------------------------------------------------------
+// Assertions
+// -------------------------------------------------------------------------------
+
+let age = 0
+assert(age >= 0, "The age cannot be less than zero")
+assert(age >= 0)
 
 
 
