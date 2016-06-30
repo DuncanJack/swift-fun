@@ -128,6 +128,31 @@ for character in word.characters {
     print(character, terminator:"")
 }
 
+// Inerting and Removing
+
+var abcde = "abcde"
+abcde.remove(at: abcde.index(abcde.startIndex, offsetBy: 3))
+abcde.insert("d", at:abcde.index(abcde.startIndex, offsetBy: 3))
+abcde.removeSubrange(abcde.startIndex...abcde.index(abcde.startIndex, offsetBy: 2))
+
+// -------------------------------------------------------------------------------
+// Comparing Strings
+// -------------------------------------------------------------------------------
+
+// String and Character Equality
+var first = "first"
+var second = first
+first == second
+
+first.append("?")
+first == second
+
+// Prefix and Suffix Equality
+
+"abc".hasPrefix("a")
+"abc".hasSuffix("c")
+
+
 
 
 
