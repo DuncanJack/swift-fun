@@ -1,3 +1,5 @@
+import Foundation
+
 // -------------------------------------------------------------------------------
 // Mutability of Collections
 // -------------------------------------------------------------------------------
@@ -36,4 +38,26 @@ for int in even {
 
 for (index, value) in even.enumerated() {
     print("even[\(index)]: \(value)")
+}
+
+var myArray = NSMutableArray(array: [1,2,3])
+myArray.add(4)
+
+// -------------------------------------------------------------------------------
+// Sets
+// -------------------------------------------------------------------------------
+
+var cities = Set<String>(["Los Angeles","San Francisco","Sacramento"])
+cities.insert("Boston")
+cities.insert("Boston")
+cities.count
+cities.isEmpty
+cities.remove(at: cities.startIndex)
+
+for city in cities {
+    print(city)
+}
+
+for city in cities.sorted() {
+    print(city)
 }
