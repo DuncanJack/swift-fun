@@ -18,3 +18,19 @@ for character in name.characters {
 // -------------------------------------------------------------------------------
 // While Loops
 // -------------------------------------------------------------------------------
+
+// While
+
+var counter = 0
+while counter < 10 {
+    print(counter, terminator: "")
+    counter += 1
+}
+
+// Repeat-While
+
+counter = 0
+repeat {
+    print(counter, terminator: "")
+    counter += 1
+} while counter < 10
