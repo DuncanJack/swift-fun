@@ -168,13 +168,31 @@ default:
     print("something else")
 }
 
+// Fallthrough
 
+let myValue = 6
+switch myValue {
+case 1...100:
+    print("myValue is between 1 and 100")
+    fallthrough
+case 1...10:
+    print("myValue is between 1 and 10")
+default:
+    print("myValue is neither between 1 and 100, nor between 1 and 10")
+}
 
+// Labelled Statements
 
+outer:for i in 1...5 {
+    inner:for j in 1...5 {
 
-
-
-
+        if(i == 3 && j == 3){
+            break outer
+        }
+        print("\(i) \(j)")
+        
+    }
+}
 
 
 
