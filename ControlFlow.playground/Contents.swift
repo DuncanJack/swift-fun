@@ -133,6 +133,58 @@ case let (x,y):
     print("(\(x),\(y)) is not one of the target cases")
 }
 
+// -------------------------------------------------------------------------------
+// Control Transfer Statements
+// -------------------------------------------------------------------------------
+
+// Continue
+
+for int in 1...10 {
+    switch int {
+    case 1,3,5,7,9:
+        continue
+    case let even:
+        print(even)
+    }
+}
+
+// Break
+
+for i in 1...5 {
+    if i == 3{
+        break
+    }
+    print(i)
+}
+
+let balance = 0
+var acceptable: Bool?
+switch balance {
+case 1...9:
+    print("single digit")
+case 10...99:
+    break
+default:
+    print("something else")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
