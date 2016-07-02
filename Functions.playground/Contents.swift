@@ -96,24 +96,46 @@ let b = a
 // Function Types
 // -------------------------------------------------------------------------------
 
+func type0() {
+    print("type0")
+}
+var myType0: () -> Void = type0
 
+func type1(a:Int) -> String {
+    return "\(a)"
+}
+var myType1: (Int) -> String = type1
 
 // Using Function Types
 
-
+myType0()
+myType1(1)
 
 // Function Types as Parameter Types
-
-
+func myType2(int: Int, type1:(a:Int) ->String ) {
+    type1(a: int)
+}
+myType2(int: 5, type1: myType1)
 
 // Function Types as Return Types
-
-
+func getType1() -> (a:Int) -> String {
+    return type1
+}
+getType1()(a: 1)
 
 // -------------------------------------------------------------------------------
 // Nested Functions
 // -------------------------------------------------------------------------------
 
+func outer(){
+    
+    func inner(){
+        print("inner")
+    }
+    
+    inner()
+}
+outer()
 
 
 
