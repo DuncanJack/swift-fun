@@ -79,7 +79,28 @@ alpha()
 // Nonescaping Closures
 // -------------------------------------------------------------------------------
 
+var escapee: (() -> Void)!
+func noescapeExample(_ a:()->Void, _ b: @noescape ()->Void){
+    // This closure is not called until after this method returns ... it escapes.
+    escapee = a
+    // This closure is called before this method returns ... it does not escape.
+    b();
+}
 
+class Closures {
+    let message = "Closures"
+    func go(){
+        noescapeExample(
+            // This closure escapes and must use self explicitly.
+            { print(self.message) },
+            // This closure does not escape and can use self implicitly.
+            { print(message) }
+        )
+    }
+}
+
+Closures().go()
+escapee()
 
 // -------------------------------------------------------------------------------
 // Autoclosures
