@@ -54,12 +54,26 @@ calculate{a,b in
 // Capturing Values
 // -------------------------------------------------------------------------------
 
+func getClosure()-> () -> Void {
+    var counter = 0
+    return {
+        print("counter: \(counter)")
+        counter += 1
+    }
+}
+var alpha = getClosure()
+alpha()
 
 // -------------------------------------------------------------------------------
 // Closures Are Reference Types
 // -------------------------------------------------------------------------------
 
+var beta = alpha
+beta()
+beta()
+beta()
 
+alpha()
 
 // -------------------------------------------------------------------------------
 // Nonescaping Closures
