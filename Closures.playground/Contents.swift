@@ -106,15 +106,24 @@ escapee()
 // Autoclosures
 // -------------------------------------------------------------------------------
 
+func manual(_ closure:()->Void){
+    closure()
+}
+manual({
+    print("manual")
+})
 
-// Call serve with a closure.
+func auto(_ closure: @autoclosure ()->Void){
+    closure()
+}
+auto(print("auto"))
 
-
-// Call serve as if it takes a string.
-
-
-// Escaping autoclosure
-
+var autoEscapee: (() -> Void)!
+func autoEscaping(_ closure: @autoclosure(escaping) ()->Void){
+    autoEscapee = closure
+}
+autoEscaping(print("autoEscaping"))
+autoEscapee()
 
 // -------------------------------------------------------------------------------
 // Examples
@@ -156,7 +165,7 @@ execute(closure: closure2)
 
 // (Int,Int) -> Int
 func execute(closure:(Int, Int) -> Int) {
-        closure(3,3)
+    closure(3,3)
 }
 
 let closure3 = {(a:Int, b:Int) -> Int in
