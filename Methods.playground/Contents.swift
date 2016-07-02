@@ -70,6 +70,50 @@ truck.upgrade()
 truck.upgrade()
 print("My truck is a \(truck)")
 
+// -------------------------------------------------------------------------------
+// Type Methods
+// -------------------------------------------------------------------------------
+
+class SomeClass {
+    class func someTypeMethod() {
+        print("someTypeMethod can be overridden.")
+    }
+    static func anotherTypeMethod() {
+        print("anotherTypeMethod cannot be overridden.")
+    }
+}
+
+class MyClass : SomeClass {
+    override static func someTypeMethod() {
+        print("someTypeMethod has been overridden.")
+    }
+}
+
+SomeClass.someTypeMethod()
+SomeClass.anotherTypeMethod()
+
+MyClass.someTypeMethod()
+
+class Member {
+    static var count = 0
+    
+    init(){
+        Member.count += 1
+    }
+    
+    static func resetMemberCount() {
+        self.count = 0
+    }
+}
+
+_ = Member()
+_ = Member()
+_ = Member()
+
+print("Member.count: \(Member.count)")
+Member.resetMemberCount()
+print("Member.count: \(Member.count)")
+
 
 
 
