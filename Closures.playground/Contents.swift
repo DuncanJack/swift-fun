@@ -2,22 +2,53 @@
 // Closure Expressions
 // -------------------------------------------------------------------------------
 
-// The Sorted Method
+func write(_ closure:(Int,Int)->Int){
+    print(closure(1,2))
+}
 
 // Closure Expression Syntax
 
+write({(a:Int, b:Int) in
+    return a + b
+})
+
 // Inferring Type From Context
+
+write({a,b in
+    return a + b
+})
 
 // Implicit Returns from Single-Expression Closures
 
+write({a,b in a+b})
+
 // Shorthand Argument Names
 
+write({$0 + $1})
+
 // Operator Functions
+
+write(+)
 
 // -------------------------------------------------------------------------------
 // Trailing Closures
 // -------------------------------------------------------------------------------
 
+func calculate(_ closure:(Int,Int) -> Int){
+    print(closure(1,1))
+}
+
+calculate({a,b in
+    a+b
+})
+
+calculate(){a,b in
+    a+b
+}
+
+calculate{a,b in
+    a+b
+}
 
 // -------------------------------------------------------------------------------
 // Capturing Values
