@@ -30,3 +30,21 @@ var results = [1:"Andrew",2:"Bert",3:"Chris"]
 if let winner = results[2] {
     print("the winner is: \(winner)")
 }
+
+// -------------------------------------------------------------------------------
+// Subscript Options
+// -------------------------------------------------------------------------------
+
+class Grid {
+    
+    var grid = [
+        "people":["mike":1,"bob":2, "mel":3],
+        "numbers":["ten":10,"20":20]
+    ]
+    
+    subscript(list:String,key:String) -> Int? {
+        return grid[list]?[key]
+    }
+}
+
+Grid()["people","bob"]
