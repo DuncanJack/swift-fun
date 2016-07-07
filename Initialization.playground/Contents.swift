@@ -137,7 +137,25 @@ print(Unit(c: "c"))
 // Class Inheritance and Initialization
 // -------------------------------------------------------------------------------
 
+// Initializer Inheritance and Overriding
 
+class A {
+    var stored = 0
+    var computed: String {
+        return "\(stored)"
+    }
+}
+let a = A()
+print("a.computed \(a.computed)")
+
+class B: A {
+    override init(){
+        super.init()
+        super.stored = 1
+    }
+}
+let b = B()
+print("b.computed \(b.computed)")
 
 
 
