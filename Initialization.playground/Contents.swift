@@ -157,6 +157,23 @@ class B: A {
 let b = B()
 print("b.computed \(b.computed)")
 
+// Designated and Convenience Initializers in Action
+
+class Alpha {
+    var name: String
+    init(name: String){
+        self.name = name
+    }
+    convenience init() {
+        self.init(name:"Unnamed")
+    }
+}
+let alpha1 = Alpha(name: "Alpha1")
+print(alpha1.name)
+
+let alpha2 = Alpha()
+print(alpha2.name)
+
 
 
 
