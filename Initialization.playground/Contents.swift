@@ -84,5 +84,48 @@ let letter = Letter("el")
 // Default Initializers
 // -------------------------------------------------------------------------------
 
+class ClassWithDefaults {
+    var name: String?
+}
+_ = ClassWithDefaults()
+
+class ClassWithoutDefaults {
+    var name:String
+    init(name:String){
+        self.name = name
+    }
+}
+_ = ClassWithoutDefaults(name:"a name")
+
+// Memberwise Initializers for Structure Types
+
+struct StructWithDefaults {
+    var name:String?
+}
+_ = StructWithDefaults()
+
+struct StructWithoutDefaults {
+    var name:String
+}
+_ = StructWithoutDefaults(name: "un nom")
+
+// -------------------------------------------------------------------------------
+// Initializer Delegation for Value Types
+// -------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
