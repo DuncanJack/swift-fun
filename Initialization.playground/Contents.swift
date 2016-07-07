@@ -113,10 +113,29 @@ _ = StructWithoutDefaults(name: "un nom")
 // Initializer Delegation for Value Types
 // -------------------------------------------------------------------------------
 
+struct Unit {
+    var a:String?
+    var b:String?
+    var c:String?
+    init(){
+        self.a = "a"
+    }
+    init(b:String){
+        self.init()
+        self.b = b
+    }
+    init(c:String){
+        self.init()
+        self.c = "c"
+    }
+}
+print(Unit())
+print(Unit(b: "b"))
+print(Unit(c: "c"))
 
-
-
-
+// -------------------------------------------------------------------------------
+// Class Inheritance and Initialization
+// -------------------------------------------------------------------------------
 
 
 
