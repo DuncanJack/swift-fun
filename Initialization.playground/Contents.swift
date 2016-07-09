@@ -160,19 +160,44 @@ print("b.computed \(b.computed)")
 // Designated and Convenience Initializers in Action
 
 class Alpha {
-    var name: String
-    init(name: String){
-        self.name = name
+    var alphaProp: String
+    init(alphaProp: String){
+        self.alphaProp = alphaProp
     }
     convenience init() {
-        self.init(name:"Unnamed")
+        self.init(alphaProp:"alphaProp")
     }
 }
-let alpha1 = Alpha(name: "Alpha1")
-print(alpha1.name)
+let designatedAlpha = Alpha(alphaProp: "alphaProp")
+let convenientAlpha = Alpha()
 
-let alpha2 = Alpha()
-print(alpha2.name)
+class Beta: Alpha {
+    var betaProp: String
+    init(alphaProp:String, betaProp:String){
+        self.betaProp = betaProp
+        super.init(alphaProp:alphaProp)
+    }
+    convenience init() {
+        self.init(alphaProp:"alphaProp", betaProp: "betaProp")
+    }
+}
+let designatedBeta = Beta(alphaProp: "alphaProp", betaProp: "betaProp")
+let convenientBeta = Beta()
+
+class Gamma: Beta {
+    var gammaProp: String
+    init(alphaProp: String, betaProp: String, gammaProp: String){
+        self.gammaProp = gammaProp
+        super.init(alphaProp:alphaProp, betaProp:betaProp)
+    }
+    convenience init() {
+        self.init(alphaProp: "alphaProp", betaProp: "betaProp", gammaProp: "gammaProp")
+    }
+}
+let designatedGamma = Gamma(alphaProp: "alphaProp", betaProp: "betaProp", gammaProp: "gammaProp")
+let convenientGamma = Gamma()
+
+
 
 
 
