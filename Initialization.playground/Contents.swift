@@ -238,14 +238,50 @@ for potentialFlavor in [Flavor(initial: "R"),Flavor(initial:"S"), Flavor(initial
     }
 }
 
+// Failable Initializers for Enumerations with Raw Values
 
+enum Size: Character {
+    case small = "s", medium = "m", large = "l"
+}
 
+if let small = Size(rawValue: "s") {
+    print("s is \(small)")
+}
 
+if let xxl = Size(rawValue: "x") {} else {
+    print("xxl is not a Size")
+}
 
+// Propogation of Initialization Failures
 
+class Building {
+    var category: String
+    init?(category: String){
+        if category.isEmpty { return nil }
+        self.category = category
+    }
+}
 
+class House: Building {
+    var bedrooms: Int
+    init?(bedrooms: Int, category: String){
+        if bedrooms < 1 {return nil }
+        self.bedrooms = bedrooms
+        super.init(category: category)
+    }
+}
 
+if let house = House(bedrooms: 1, category: "A") {
+    print("A house")
+}
 
+if let house = House(bedrooms: 0, category: "A") { } else {
+    print("Not a house")
+}
+
+if let house = House(bedrooms: 1, category: "") { } else {
+    print("Not a house")
+}
 
 
 
