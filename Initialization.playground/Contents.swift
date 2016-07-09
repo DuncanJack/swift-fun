@@ -283,6 +283,55 @@ if let house = House(bedrooms: 1, category: "") { } else {
     print("Not a house")
 }
 
+// Overriding a Failable Initializer
+
+class Document {
+    var name:String?
+    init() {}
+    init?(name: String) {
+        if name.isEmpty { return nil }
+        self.name = name
+    }
+}
+if let document = Document(name: "") {} else {
+    print("document is nil")
+}
+
+class NamedDocument: Document {
+    override init(name: String) {
+        super.init()
+        self.name = name.isEmpty ? "Empty" : name
+    }
+}
+
+class NamedDocument2: Document {
+    override init(name: String) {
+        super.init(name: name.isEmpty ? "Empty" : name)! // Note the ! operator
+    }
+}
+
+// The init! Failable Initializer
+
+class Failable {
+    var name: String!
+    init!(name: String){
+        if name.isEmpty { return nil }
+        self.name = name
+    }
+}
+let failed = Failable(name: "")
+let failable = Failable(name: "name")
+
+
+
+
+
+
+
+
+
+
+
 
 
 
