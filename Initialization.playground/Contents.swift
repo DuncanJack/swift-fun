@@ -322,6 +322,24 @@ class Failable {
 let failed = Failable(name: "")
 let failable = Failable(name: "name")
 
+// -------------------------------------------------------------------------------
+// Required Initializers
+// -------------------------------------------------------------------------------
+
+class Note {
+    required init(name:String) {
+        
+    }
+}
+
+class MusicalNote: Note {
+    required init(name: String) {
+        super.init(name: name)
+    }
+}
+
+_ = MusicalNote(name:"F")
+
 
 
 
