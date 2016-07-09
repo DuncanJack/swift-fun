@@ -340,6 +340,18 @@ class MusicalNote: Note {
 
 _ = MusicalNote(name:"F")
 
+// -------------------------------------------------------------------------------
+// Setting a Default Property Value with a Closure or Function
+// -------------------------------------------------------------------------------
+
+class OptionList {
+    var options: [String] = {
+        return ["Un","Deux","Trois"]
+    }()
+}
+
+print(OptionList().options)
+
 
 
 
