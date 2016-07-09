@@ -197,6 +197,48 @@ class Gamma: Beta {
 let designatedGamma = Gamma(alphaProp: "alphaProp", betaProp: "betaProp", gammaProp: "gammaProp")
 let convenientGamma = Gamma()
 
+// -------------------------------------------------------------------------------
+// Failable Initializers
+// -------------------------------------------------------------------------------
+
+struct Decision {
+    init?(decision: String){
+        if decision.isEmpty {
+            return nil
+        }
+    }
+}
+
+_ = Decision(decision: "")
+_ = Decision(decision:"Oui")
+
+// Failable Initializers for Enumerations
+
+enum Flavor {
+    case raspberry, strawberry, chocolate
+    init?(initial: String){
+        switch initial {
+        case "R":
+            self = .raspberry
+            case "S":
+            self = .strawberry
+        case "C":
+            self = .chocolate
+        default:
+            return nil
+        }
+    }
+}
+
+for potentialFlavor in [Flavor(initial: "R"),Flavor(initial:"S"), Flavor(initial:"C"), Flavor(initial:"?")]{
+    if let flavor = potentialFlavor {
+        print(flavor)
+    } else {
+        print("not a flavor")
+    }
+}
+
+
 
 
 
