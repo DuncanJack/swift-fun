@@ -95,7 +95,26 @@ class Employee {
 var employer = Employer(name: "E", employeeName: "Phil")
 print("\(employer.name)'s employee is called \(employer.employee.name)")
 
+// -------------------------------------------------------------------------------
+// Strong Reference Cycles for Closures
+// -------------------------------------------------------------------------------
 
+class Calculator {
+    var prefix: String?
+    lazy var calculate: (a:Int, b:Int) -> String = {
+        return ("\(self.prefix!) \($0 + $1)")
+    }
+    init(prefix:String){
+        self.prefix = prefix
+    }
+    deinit{
+        print("Calculator.deinit")
+    }
+}
+
+var calculator: Calculator? = Calculator(prefix:"Addition: ")
+print(calculator!.calculate(a: 1,b: 2))
+calculator = nil
 
 
 
