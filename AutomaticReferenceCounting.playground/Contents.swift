@@ -112,9 +112,40 @@ class Calculator {
     }
 }
 
+// A strong reference cycle exists between the instance and the closure (also an instance)
 var calculator: Calculator? = Calculator(prefix:"Addition: ")
 print(calculator!.calculate(a: 1,b: 2))
 calculator = nil
+
+// -------------------------------------------------------------------------------
+// Resolving Strong Reference Cycles for Closures
+// -------------------------------------------------------------------------------
+
+// Weak and Unowned References
+
+class MyCalculator {
+    var prefix: String?
+    lazy var calculate: (a:Int, b:Int) -> String = {
+        // Capture self as an unowned reference rather than a strong reference
+        [unowned self] in
+        return ("\(self.prefix!) \($0 + $1)")
+    }
+    init(prefix:String){
+        self.prefix = prefix
+    }
+    deinit{
+        print("Calculator.deinit")
+    }
+}
+
+// A strong reference cycle exists between the instance and the closure (also an instance)
+var myCalculator: MyCalculator? = MyCalculator(prefix:"Addition: ")
+print(myCalculator!.calculate(a: 1,b: 2))
+myCalculator = nil
+
+
+
+
 
 
 
