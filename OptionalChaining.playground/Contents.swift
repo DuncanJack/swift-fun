@@ -79,14 +79,38 @@ print((a.b?.c?.name)!)
 
 a.b?.c?.f() == nil
 
-
 // -------------------------------------------------------------------------------
 // Accessing Subscripts Through Optional Chaining
 // -------------------------------------------------------------------------------
 
+class D {
+    var codes: [String]?
+    subscript(i: Int) -> String? {
+        get {
+            return codes?[0]
+        }
+        set {
+            codes?[i] = newValue!
+        }
+    }
+    init(codes:[String]?) {
+        self.codes = codes
+    }
+}
 
+var d: D? = D(codes:["A","B","C"])
+d?[0] = "A*"
+print(d?[0])
 
+// Accessing Subscripts of Optional Type
 
+var countries = ["A":[1,2,3],"B":[4,5,6]]
+countries["A"]?[0] = 10
+countries["B"]?[1] = 50
+countries["C"]?[0] = 40
+print(countries)
+countries["C"] = [7,8,9]
+print(countries["C"]!)
 
 
 
