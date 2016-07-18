@@ -124,7 +124,31 @@ families["smith"]?["anne"]?["weight"]!
 families["smith"]?["anne"]?["weight"] = 140
 families["smith"]?["anne"]?["weight"]!
 
+// -------------------------------------------------------------------------------
+// Chaining on Methods with Optional Return Values
+// -------------------------------------------------------------------------------
 
+class E {
+    var f: F?
+    init() {
+    }
+    init(f:F) {
+        self.f = f
+    }
+}
+
+class F {
+    func echo(s: String?) -> String? {
+        return s
+    }
+}
+
+var e = E()
+if let s = e.f?.echo(s: nil)?.hasPrefix("S") {
+    print("Starts with S")
+} else {
+    print("Does not start with S")
+}
 
 
 
