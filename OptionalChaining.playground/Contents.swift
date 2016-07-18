@@ -112,10 +112,17 @@ print(countries)
 countries["C"] = [7,8,9]
 print(countries["C"]!)
 
+// -------------------------------------------------------------------------------
+// Linking Multiple Levels of Chaining
+// -------------------------------------------------------------------------------
 
+var families = [
+    "smith":["bob":["height":200,"weight":200],"anne":["height":160,"weight":160]]
+]
+families["smith"]?["anne"]?["weight"]!
 
-
-
+families["smith"]?["anne"]?["weight"] = 140
+families["smith"]?["anne"]?["weight"]!
 
 
 
