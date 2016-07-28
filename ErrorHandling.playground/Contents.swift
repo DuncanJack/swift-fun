@@ -53,3 +53,11 @@ do {
 }
 
 // Converting Errors to Optional Values
+
+let answer = try? add(a:2, b:2)
+print(answer)
+
+// Disabling Error Propogation
+
+let result = try! (add(a:2,b:2))
+print(result)
