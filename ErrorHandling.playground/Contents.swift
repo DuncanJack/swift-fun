@@ -61,3 +61,40 @@ print(answer)
 
 let result = try! (add(a:2,b:2))
 print(result)
+
+// -------------------------------------------------------------------------------
+// Specifying Cleanup Actions
+// -------------------------------------------------------------------------------
+
+print("before defer")
+defer {
+    print("defer 1")
+}
+print("after defer")
+
+do {
+    try add(a:10,b:10)
+} catch {
+    print("add threw an error")
+}
+
+defer {
+    print("defer 2")
+}
+
+defer {
+    print("defer 3")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
