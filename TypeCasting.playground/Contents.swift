@@ -38,3 +38,48 @@ pets[1] is Dog
 // -------------------------------------------------------------------------------
 // Downcasting
 // -------------------------------------------------------------------------------
+
+let dog = pets[0] as! Dog
+print(dog.weight)
+
+if let dog = pets[2] as? Dog {
+    print(dog.weight)
+}
+
+// Convert (up the hierarchy)
+let animal = Dog(name: "Chien", weight: 100) as Animal
+
+// Downcast (forced)
+let chien = animal as! Dog
+
+// Downcast (conditional)
+let hund = animal as? Dog
+
+// -------------------------------------------------------------------------------
+// Type Casting for AnyObject and Any
+// -------------------------------------------------------------------------------
+
+// AnyObject
+
+let objects: [AnyObject] = [
+    Animal(name:"Tiger"),
+    Animal(name:"Leopard")
+]
+
+// Downcast (forced)
+let forcedAnimals = objects as! [Animal]
+
+// Downcast (conditional)
+let conditionalAnimals = objects as? [Animal]
+
+// Convert (up the hierarchy)
+let converted = forcedAnimals as [AnyObject]
+
+
+
+
+
+
+
+
+
