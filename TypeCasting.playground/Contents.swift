@@ -75,8 +75,23 @@ let conditionalAnimals = objects as? [Animal]
 // Convert (up the hierarchy)
 let converted = forcedAnimals as [AnyObject]
 
+// Any
 
+let anys: [Any] = [
+    "A",
+    Animal(name: "Tiger")
+]
 
+for any in anys {
+    switch any {
+    case let someString as String:
+        print("some string: \(someString)")
+    case let someAnimal as Animal:
+        print("some animal: \(someAnimal)")
+    default:
+        print("none of the above")
+    }
+}
 
 
 
